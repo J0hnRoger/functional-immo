@@ -6,38 +6,15 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import type { Simulation } from "../domain/immoTypes";
 
-export type Money = number;
-export type Rate = number;
-export type Year = number;
 
-export type MortgageInput = {
-  principal: Money;
-  annualRate: Rate;
-  termYears: Year;
-  insuranceRate?: Rate | null;
-};
 
-export type PropertyInput = {
-  price: Money;
-  notary: Money;
-  works: Money;
-  monthlyRent: Money;
-  monthlyCharges: Money;
-  monthlyTax: Money;
-  vacancyRate: Rate;
-  capexMonthly: Money;
-  managementRate: Rate;
-};
-
-export type Simulation = {
-  property: PropertyInput;
-  mortgage: MortgageInput;
-};
 
 export type ScenarioFormProps = {
   defaultValues?: Partial<Simulation>;
@@ -64,7 +41,6 @@ const DEFAULTS: Simulation = {
   },
 };
 
-// --- Mini composants internes --- //
 const MoneyInput = ({
   form,
   name,
@@ -121,7 +97,6 @@ const PercentInput = ({
   />
 );
 
-// --- Composant principal --- //
 export function SimulatorForm({
   defaultValues,
   onSubmit,

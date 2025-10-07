@@ -4,7 +4,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 export const Route = createRootRoute({
   component: () => (
-    <>
+    <div className='h-full'>
       <Outlet />
       <TanStackDevtools
         config={{
@@ -17,6 +17,6 @@ export const Route = createRootRoute({
           },
         ]}
       />
-    </>
+    </div>
   ),
 })
